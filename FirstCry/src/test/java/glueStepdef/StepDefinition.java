@@ -6,11 +6,14 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import ing.common.utilities.CommonUtilities;
-
+import ing.firstcry.pages.Homepage;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 
 public class StepDefinition {
 	public static WebDriver driver;
@@ -39,4 +42,18 @@ public class StepDefinition {
 		property.load(fis);
 		return property;
 	}
+	
+	@When("User to Mouse Hover on \"(.*)\" link")
+	public void user_to_Mouse_Hover_on_All_categories_link(String Linktoclick) {
+		Homepage home=PageFactory.initElements(driver,Homepage.class);
+		home.mouseoverallcateglink();
+	    	}
+	
+	@And("User to Navigate to Stores and playschools")
+	public void user_to_Navigate_to_Stores_and_playschools() {
+		Homepage home=PageFactory.initElements(driver,Homepage.class);
+		home.mouseoverstoreandplayschool();
+	}
+	
+	
 }
