@@ -43,16 +43,16 @@ public class StepDefinition {
 		return property;
 	}
 	
-	@When("User to Mouse Hover on \"(.*)\" link")
+	@When("^User to Mouse Hover on \"(.*)\" link$")
 	public void user_to_Mouse_Hover_on_All_categories_link(String Linktoclick) {
 		Homepage home=PageFactory.initElements(driver,Homepage.class);
-		home.mouseoverallcateglink();
+		home.mouseoverallcateglink(Linktoclick);
 	    	}
 	
-	@And("User to Navigate to Stores and playschools")
-	public void user_to_Navigate_to_Stores_and_playschools() {
+	@And("^User to Navigate to \"(.*)\"$")
+	public void user_to_Navigate_to_Stores_and_playschools(String Storesandplayschools) {
 		Homepage home=PageFactory.initElements(driver,Homepage.class);
-		home.mouseoverstoreandplayschool();
+		home.mouseoverstoreandplayschool(Storesandplayschools);
 	}
 	
 	
